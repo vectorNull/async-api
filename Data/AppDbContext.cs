@@ -10,6 +10,6 @@ namespace AsyncApi.Data
             
         }
 
-        DbSet<ListingRequest> ListingRequests => Set<ListingRequest>();
+        public DbSet<ListingRequest> ListingRequests => Set<ListingRequest>();
     }
 }
