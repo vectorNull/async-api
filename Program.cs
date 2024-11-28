@@ -42,12 +42,21 @@ app.MapGet("api/v1/productstatus/{requestId}", (AppDbContext context, string req
     if (listingRequest.RequestStatus!.ToUpper() == "COMPLETE")
     {
         listingStatus.ResourceUrl = $"api/v1/products/{Guid.NewGuid().ToString()}";
-        return Results.Ok(listingStatus);
+        // return Results.Ok(listingStatus);
+
+        return Results.Redirect("http://localhost:5186/" + listingStatus.ResourceUrl);
     }
 
     listingStatus.EstimatedCompletionTime = "2024-11-26:14:11:11";
 
     return Results.Ok(listingStatus);
+});
+
+// Final Endpoint
+app.MapGet("api/v1/products/{requestId}", (string requestId) => {
+
+    return Results.Ok("Pass back final result");
+
 });
 
 app.Run();
