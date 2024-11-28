@@ -485,3 +485,5 @@ $RECYCLE.BIN/
 
 # local databases
 *.db
+RequestDB.db-shm
+RequestDB.db-wal
